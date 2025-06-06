@@ -9,6 +9,9 @@ Acesse o endpoint:
 
 Criar pedido: POST http://localhost:8080/pedidos
 
+
+curl -X POST http://localhost:8080/pedidos -H "Content-Type: application/json" -d '{"clienteId": 1, "itens": [{"produtoId": 101, "quantidade": 2}]}'  
+
 docker compose
 
 version: '3'
