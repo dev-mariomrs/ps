@@ -7,6 +7,33 @@ No terminal, na raiz do projeto pedido-service, execute:
 
 Acesse o endpoint:
 
+Cliente faz POST em /pedidos
+
+Corpo da requisição:
+
+json
+{
+  "clienteId": 1,
+  "itens": [{"produtoId": 101, "quantidade": 2}]
+}
+Resposta:
+
+json
+{
+  "id": 1,
+  "status": "CRIADO",
+  "cliente": {"id": 1, "nome": "João"},
+  "itens": [...]
+}
+Serviço de Pedidos persiste no H2 e publica evento
+
+Banco de dados: Verificar tabela Pedido (status = CRIADO).
+
+Kafka: Verificar mensagem no tópico pedidos-topic:
+
+json
+{"pedidoId": 1, "status": "CRIADO"}
+
 Criar pedido: POST http://localhost:8080/pedidos
 
 
